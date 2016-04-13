@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8D7F98DE-162A-4269-BFF3-166A68DC681B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SACS.Library</RootNamespace>
+    <AssemblyName>SACS.Library</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <WebGreaseLibPath>packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Activities\BargainFinderMaxActivity.cs" />
+    <Compile Include="Activities\BargainFinderMaxSoapActivity.cs" />
+    <Compile Include="Activities\CommonConstants.cs" />
+    <Compile Include="Activities\EnhancedAirBookActivity.cs" />
+    <Compile Include="Activities\IgnoreTransactionActivity.cs" />
+    <Compile Include="Activities\InitialSoapActivity.cs" />
+    <Compile Include="Activities\InputData\EnhancedAirBookData.cs" />
+    <Compile Include="Activities\InputData\FlightSegmentData.cs" />
+    <Compile Include="Activities\InputData\IEnhancedAirBookData.cs" />
+    <Compile Include="Activities\InputData\IFlightSegmentData.cs" />
+    <Compile Include="Activities\InputData\ISoapWorkflowData.cs" />
+    <Compile Include="Activities\InstaFlightActivity.cs" />
+    <Compile Include="Activities\LeadPriceCalendarActivity.cs" />
+    <Compile Include="Activities\IActivity.cs" />
+    <Compile Include="Activities\PassengerDetailsContactActivity.cs" />
+    <Compile Include="Activities\TravelSeasonalityAirportLookupActivity.cs" />
+    <Compile Include="Activities\PassengerDetailsAgencyActivity.cs" />
+    <Compile Include="Rest\Models\TravelSeasonalityAirportsLookup\DestinationLocation.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\TravelSeasonalityAirportsLookup\DestinationLocationWrapper.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\TravelSeasonalityAirportsLookup\TravelSeasonalityAirportsLookupRS.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\SharedContextExtensions.cs" />
+    <Compile Include="Activities\TravelItineraryReadActivity.cs" />
+    <Compile Include="Configuration\IConfigProvider.cs" />
+    <Compile Include="Configuration\SACSConfigProvider.cs" />
+    <Compile Include="Activities\InputData\IBargainFinderMaxData.cs" />
+    <Compile Include="Activities\InputData\IInstaFlightData.cs" />
+    <Compile Include="Activities\InputData\IPassengerDetailsActivityData.cs" />
+    <Compile Include="Rest\Models\BargainFinderMax\AirTravelerAvail.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\BargainFinderMax\BargainFinderMaxRQ.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\BargainFinderMax\BargainFinderMaxRS.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\BargainFinderMax\IntelliSellTransaction.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\BargainFinderMax\NumTrips.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\BargainFinderMax\OriginDestinationInformation.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\BargainFinderMax\OTAAirLowFareSearchRQ.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\BargainFinderMax\OTAAirLowFareSearchRS.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\BargainFinderMax\POS.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\BargainFinderMax\PricedItineraries.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\BargainFinderMax\RequestorID.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\BargainFinderMax\RequestType.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\BargainFinderMax\Source.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\BargainFinderMax\Success.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\BargainFinderMax\TPAExtensions.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\BargainFinderMax\TravelerInfoSummary.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\BargainFinderMax\TravelPreferences.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\BargainFinderMax\TravelPreferencesTPAExtensions.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\BargainFinderMax\Warning.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\BargainFinderMax\Warnings.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\AirItinerary.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\AirItineraryPricingInfo.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\Cabin.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\FareInfoTPAExtensions.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\ItineraryTPAExtensions.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\DivideInParty.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\Meal.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\SeatsRemaining.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\ValidatingCarrier.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\Location.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\TimeZone.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\Equipment.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\ETicket.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\FareBasisCode.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\FareBasisCodes.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\Fare.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\FareInfos.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\FlightSegment.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\InstaFlight\InstaFlightRS.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\CompanyCode.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\OnTimePerformance.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\OperatingAirline.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\OriginDestinationOption.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\OriginDestinationOptions.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\PassengerFare.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\PassengerTypeQuantity.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\PricedItinerary.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\PTCFareBreakdown.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\PTCFareBreakdowns.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\Tax.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\Taxes.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\TicketingInfo.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\TPAExtensions.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\RestAuthorizationManager.cs" />
+    <Compile Include="Rest\TokenHolder.cs" />
+    <Compile Include="Rest\RestClient.cs" />
+    <Compile Include="Rest\HttpResponse.cs" />
+    <Compile Include="Activities\InputData\ILeadPriceCalendarData.cs" />
+    <Compile Include="Rest\Models\Auth\AuthTokenRS.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\FareInfo.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\LeadPriceCalendar\LeadPriceCalendarRS.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\LeadPriceCalendar\LeadPriceCalendarRQ.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\Link.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Rest\Models\Common\LowestFare.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SabreSoapApi\SabreSoapApi.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="SabreSoapApi\STL_Request_Payload.cs" />
+    <Compile Include="Serialization\ArrayOrObjectConverter.cs" />
+    <Compile Include="Serialization\IObjectOrString.cs" />
+    <Compile Include="Serialization\ObjectOrStringConverter.cs" />
+    <Compile Include="Serialization\ObjectPrinter.cs" />
+    <Compile Include="Soap\ISessionPool.cs" />
+    <Compile Include="Soap\SessionPool.cs" />
+    <Compile Include="Soap\SessionPoolSimple.cs" />
+    <Compile Include="Soap\SharedContextExtensions.cs" />
+    <Compile Include="Soap\SoapAuth.cs" />
+    <Compile Include="Soap\SoapHelper.cs" />
+    <Compile Include="Soap\SoapResult.cs" />
+    <Compile Include="Soap\SoapServiceFactory.cs" />
+    <Compile Include="SabreSoapApi\UniqueID_Type.cs" />
+    <Compile Include="Workflow\SharedContext.cs" />
+    <Compile Include="Workflow\Workflow.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

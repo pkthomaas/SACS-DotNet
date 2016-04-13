@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.ActiveTab = "InstaFlightsSearch";
+}
+
+<h1>Insta Flights Search</h1>
+
+<form action="insta_flights_search/search" class="form-horizontal" method="post" role="form">
+    <div class="row form-group">
+        <div class="col-md-6">
+            Origin
+            @Html.Partial("_AirportsDropdown", new AirportDropdownVM("origin", "JFK"))
+        </div>
+        <div class="col-md-6">
+            Destination
+            @Html.Partial("_AirportsDropdown", new AirportDropdownVM("destination", "LAX"))
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3">
+            Departure Date
+            <input id="soapW_departureDate" type="text" name="departureDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" class="form-control datepicker" />
+        </div>
+        <div class="col-md-3">
+            Return Date
+            <input id="soapW_returnDate" type="text" name="returnDate" value="@DateTime.Now.AddDays(1).ToString("yyyy-MM-dd")" class="form-control datepicker" />
+        </div>
+    </div>
+    <input type="submit" value="Search" class="btn btn-success" />
+</form>

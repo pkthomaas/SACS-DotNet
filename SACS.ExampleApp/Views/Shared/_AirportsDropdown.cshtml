@@ -1,0 +1,17 @@
+﻿@model AirportDropdownVM
+
+@if (ViewBag.Airports != null && ((IEnumerable<AirportModel>)ViewBag.Airports).Count() > 0)
+{
+    <select id="@Model.Name" name="@Model.Name" class="form-control">
+        @foreach (var airport in (IEnumerable<AirportModel>)ViewBag.Airports)
+        {
+            <option value="@airport.AirportCode" @(airport.AirportCode == Model.AirportCode ? "selected" : string.Empty)>
+                @airport.AirportCode @airport.AirportName
+            </option>
+        }
+    </select>
+} 
+else 
+{
+    <input id="@Model.Name", name="@Model.Name", class="form-control" />
+}

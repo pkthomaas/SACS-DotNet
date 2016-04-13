@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabre API Code Samples</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="container body-content">
+        @RenderBody()
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <a class="navbar-brand" href="/">
+                <img src="~/Content/images/sabre.png" alt="sabre" />
+            </a>
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="@(ViewBag.ActiveTab == "BargainFinderMax" ? "active" : string.Empty)">
+                        <a href="/bargain_finder_max">Bargain Finder Max</a>
+                    </li>
+                    <li class="@(ViewBag.ActiveTab == "InstaFlightsSearch" ? "active" : string.Empty)">
+                        <a href="/insta_flights_search">Insta Flights Search</a>
+                    </li>
+                    <li class="@(ViewBag.ActiveTab == "LeadPriceCalendar" ? "active" : string.Empty)">
+                        <a href="/lead_price_calendar">Lead Price Calendar</a>
+                    </li>
+                    <li class="@(ViewBag.ActiveTab == "SoapWorkflow" ? "active" : string.Empty)">
+                        <a href="/soap_workflow">SOAP Workflow</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <footer>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script>
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd'
+        });
+    </script>
+
+    
+    @RenderSection("scripts", required: false)
+</body>
+</html>

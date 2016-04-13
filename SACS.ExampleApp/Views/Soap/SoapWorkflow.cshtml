@@ -1,0 +1,96 @@
+﻿@model SoapWorkflowVM
+@{
+    ViewBag.ActiveTab = "SoapWorkflow";
+}
+
+@Html.Partial("_ErrorMessage", Model.ErrorMessage)
+
+<ul class="nav nav-tabs" role="tablist">
+
+    @if (Model.BargainFinderMaxRequestXml != null)
+    {
+        <li role="presentation">
+            <a aria-controls="bfmRequest" data-toggle="tab" href="#bfmRequest" role="tab" aria-expanded="true">BargainFinderMax request XML</a>
+        </li>
+        <li role="presentation">
+            <a aria-controls="bfmResponse" data-toggle="tab" href="#bfmResponse" role="tab" aria-expanded="true">BargainFinderMax response XML</a>
+        </li>
+    }
+
+    @if (Model.PassengerDetailsContactRequestXml != null)
+    {
+        <li role="presentation">
+            <a aria-controls="passengerDetails1Request" data-toggle="tab" href="#passengerDetails1Request" role="tab" aria-expanded="true">PassengerDetails #1 request XML</a>
+        </li>
+        <li role="presentation">
+            <a aria-controls="passengerDetails1Response" data-toggle="tab" href="#passengerDetails1Response" role="tab" aria-expanded="true">PassengerDetails #1 response XML</a>
+        </li>
+    }
+
+    @if (Model.EnhancedAirBookRequestXml != null)
+    {
+        <li role="presentation">
+            <a aria-controls="eabRequest" data-toggle="tab" href="#eabRequest" role="tab" aria-expanded="true">EnhancedAirBook request XML</a>
+        </li>
+        <li role="presentation">
+            <a aria-controls="eabResponse" data-toggle="tab" href="#eabResponse" role="tab" aria-expanded="true">EnhancedAirBook response XML</a>
+        </li>
+    }
+
+    @if (Model.PassengerDetailsAgencyRequestXml != null)
+    {
+        <li role="presentation">
+            <a aria-controls="passengerDetails2Request" data-toggle="tab" href="#passengerDetails2Request" role="tab" aria-expanded="true">PassengerDetails #2 request XML</a>
+        </li>
+        <li role="presentation">
+            <a aria-controls="passengerDetails2Response" data-toggle="tab" href="#passengerDetails2Response" role="tab" aria-expanded="true">PassengerDetails #2 response XML</a>
+        </li>
+    }
+
+    @if (Model.TravelItineraryReadRequestXml != null)
+    {
+        <li role="presentation">
+            <a aria-controls="tirRequest" data-toggle="tab" href="#tirRequest" role="tab" aria-expanded="true">TravelItineraryRead request XML</a>
+        </li>
+        <li role="presentation" class="active">
+            <a aria-controls="tirResponse" data-toggle="tab" href="#tirResponse" role="tab" aria-expanded="true">TravelItineraryRead response XML</a>
+        </li>
+    }
+</ul>
+<br />
+<div class="tab-content">
+    <div class="tab-pane" id="bfmRequest" role="tabpanel">
+        <pre>@Model.BargainFinderMaxRequestXml</pre>
+    </div>
+    <div class="tab-pane" id="bfmResponse" role="tabpanel">
+        <pre>@Model.BargainFinderMaxResponseXml</pre>
+    </div>
+
+    <div class="tab-pane" id="passengerDetails1Request" role="tabpanel">
+        <pre>@Model.PassengerDetailsContactRequestXml</pre>
+    </div>
+    <div class="tab-pane" id="passengerDetails1Response" role="tabpanel">
+        <pre>@Model.PassengerDetailsContactResponseXml</pre>
+    </div>
+
+    <div class="tab-pane" id="eabRequest" role="tabpanel">
+        <pre>@Model.EnhancedAirBookRequestXml</pre>
+    </div>
+    <div class="tab-pane" id="eabResponse" role="tabpanel">
+        <pre>@Model.EnhancedAirBookResponseXml</pre>
+    </div>
+
+    <div class="tab-pane" id="passengerDetails2Request" role="tabpanel">
+        <pre>@Model.PassengerDetailsAgencyRequestXml</pre>
+    </div>
+    <div class="tab-pane" id="passengerDetails2Response" role="tabpanel">
+        <pre>@Model.PassengerDetailsAgencyResponseXml</pre>
+    </div>
+
+    <div class="tab-pane" id="tirRequest" role="tabpanel">
+        <pre>@Model.TravelItineraryReadRequestXml</pre>
+    </div>
+    <div class="tab-pane active" id="tirResponse" role="tabpanel">
+        <pre>@Model.TravelItineraryReadResponseXml</pre>
+    </div>
+</div>

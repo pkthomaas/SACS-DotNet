@@ -1,0 +1,46 @@
+﻿@model BargainFinderMaxVM
+
+@{
+    ViewBag.ActiveTab = "BargainFinderMax";
+}
+
+@Html.Partial("_ErrorMessage", Model.ErrorMessage)
+
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active">
+        <a aria-controls="dotnet" data-toggle="tab" href="#dotnet" role="tab" aria-expanded="true">Response .NET</a>
+    </li>
+    <li role="presentation">
+        <a aria-controls="json" data-toggle="tab" href="#json" role="tab" aria-expanded="true">Response JSON</a>
+    </li>
+    <li role="presentation">
+        <a aria-controls="request" data-toggle="tab" href="#request" role="tab" aria-expanded="false">Request JSON</a>
+    </li>
+</ul>
+<br />
+<div class="tab-content">
+    <div class="tab-pane active" id="dotnet" role="tabpanel">
+        <pre>@Model.ResponseDotNet</pre>
+    </div>
+    <div class="tab-pane" id="json" role="tabpanel">
+        <pre>@Model.ResponseJson</pre>
+    </div>
+    <div class="tab-pane" id="request" role="tabpanel">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Request url</h3>
+            </div>
+            <div class="panel-body">
+                @Model.RequestUrl
+            </div>
+        </div>
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Request JSON</h3>
+                </div>
+                <div class="panel-body">
+                    <pre>@Model.RequestJson</pre>
+                </div>
+            </div>
+    </div>
+</div>

@@ -1,0 +1,186 @@
+﻿@model List<SelectListItem>
+
+@{
+    ViewBag.ActiveTab = "SoapWorkflow";
+}
+
+<h1>SOAP Workflow</h1>
+
+<hr />
+
+<form class="form-horizontal" role="form" method="post" action="soap_workflow/search">
+
+    <h4>BargainFinderMax</h4>
+
+    <div class="row form-group">
+        <div class="col-md-6">
+            Origin
+            @Html.Partial("_AirportsDropdown", new AirportDropdownVM("originAirportCode", "JFK"))
+        </div>
+
+        <div class="col-md-6">
+            Destination:
+            @Html.Partial("_AirportsDropdown", new AirportDropdownVM("destinationAirportCode", "LAX"))
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3">
+            POS Company Code
+            <input name="requestorCompanyCode" value="TN" class="form-control" />
+        </div>
+        <div class="col-md-3">
+            POS ID
+            <input name="requestorId" value="REQ.ID" class="form-control" />
+        </div>
+        <div class="col-md-3">
+            POS TYPE
+            <input name="requestorType" value="0.AAA.X" class="form-control" />
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3">
+            RPH
+            <input name="rph" value="1" class="form-control" />
+        </div>
+
+        <div class="col-md-3">
+            Passenger Quantity
+            <input name="numberOfPassengers" value="1" type="number" class="form-control" />
+        </div>
+        <div class="col-md-3">
+            Passenger Code
+            <input name="passengerTypeCode" value="ADT" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-md-3">
+            Departure Date
+            <input id="soapW_departureDate" type="date" name="departureDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" class="form-control datepicker" />
+        </div>
+        <div class="col-md-3">
+            Request type
+            <input name="requestType" value="50ITINS" class="form-control" />
+        </div>
+    </div>
+
+    <hr />
+
+    <h4>PassengerDetails #1</h4>
+
+    <div class="row form-group">
+        <div class="col-md-3">
+            Given name
+            <input id="pdf_GivenName" name="GivenName" type="text" value="SWS" class="form-control" />
+        </div>
+
+        <div class="col-md-3">
+            Surname
+            <input id="pdf_Surname" name="Surname" type="text" value="TEST" class="form-control" />
+        </div>
+
+        <div class="col-md-3">
+            Date of birth
+            <input id="pdf_DateOfBirth" name="DateOfBirth" type="date" value="1977-11-27" class="form-control" />
+        </div>
+
+        <div class="col-md-3">
+            Gender<br />
+            <label class="radio-inline"><input name="Gender" type="radio" value="M" checked="checked"> Male</label>
+            <label class="radio-inline"><input name="Gender" type="radio" value="F"> Female</label>
+        </div>
+   </div>
+
+    <div class="row form-group">
+        <div class="col-md-3">
+            Email
+            <input id="pdf_PassengerEmail" name="PassengerEmail" type="email" value="webservices.support@sabre.com" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-md-3">
+            Phone #1
+            <input id="pdf_Phone1" name="Phone1" type="tel" value="817-555-1212" class="form-control" />
+        </div>
+        <div class="col-md-3">
+            Use type
+            <input id="pdf_Phone1UseType" name="Phone1UseType" type="text" value="H" class="form-control" />
+        </div>
+        <div class="col-md-5">
+            Location
+            @Html.Partial("_AirportsDropdown", new AirportDropdownVM("Phone1LocationCode", "JFK"))
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-md-3">
+            Phone #2
+            <input id="pdf_Phone2" name="Phone2" type="tel" value="682-555-1212" class="form-control" />
+        </div>
+        <div class="col-md-3">
+            Use type
+            <input id="pdf_Phone2UseType" name="Phone2UseType" type="text" value="O" class="form-control" />
+        </div>
+        <div class="col-md-5">
+            Location
+            @Html.Partial("_AirportsDropdown", new AirportDropdownVM("Phone2LocationCode", "JFK"))
+        </div>
+    </div>
+
+    <hr />
+
+    <h4>PassengerDetails #2</h4>
+
+    <div class="row form-group">
+        <div class="col-md-3">
+            Address first line
+            <input id="pdf_AgencyAddressLine" name="AgencyAddressLine" type="text" value="SABRE TRAVEL" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-md-3">
+            Street
+            <input id="pdf_AgencyStreetNumber" name="AgencyStreetNumber" type="text" value="3150 SABRE DRIVE" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-md-3">
+            Postal code
+            <input id="pdf_AgencyPostalCode" name="AgencyPostalCode" type="text" value="76092" class="form-control" />
+        </div>
+
+        <div class="col-md-3">
+            City
+            <input id="pdf_AgencyCityName" name="AgencyCityName" type="text" value="SOUTHLAKE" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-md-3">
+            State
+            <input id="pdf_AgencyStateCode" name="AgencyStateCode" type="text" value="TX" class="form-control" />
+        </div>
+
+        <div class="col-md-3">
+            Country
+            <input id="pdf_AgencyCountryCode" name="AgencyCountryCode" type="text" value="US" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-md-3">
+            Ticketing
+            <input name="AgencyTicketType" type="text" value="7T-A" class="form-control" />
+        </div>
+    </div>
+
+    <hr />
+
+    <input type="submit" value="submit" class="btn btn-success" />
+</form>
+
+
+

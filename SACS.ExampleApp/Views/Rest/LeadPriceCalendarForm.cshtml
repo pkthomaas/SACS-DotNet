@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.ActiveTab = "LeadPriceCalendar";
+}
+
+<h1>Lead Price Calendar</h1>
+
+<form action="lead_price_calendar/search" class="form-horizontal" method="post" role="form">
+    <div class="row form-group">
+        <div class="col-md-6">
+            Origin
+            @Html.Partial("_AirportsDropdown", new AirportDropdownVM("origin", "JFK"))
+        </div>
+        <div class="col-md-6">
+            Destination
+            @Html.Partial("_AirportsDropdown", new AirportDropdownVM("destination", "LAX"))
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3">
+            Point Of Sale Country
+            <input id="soapW_pointOfSaleCountry" name="pointOfSaleCountry" value="US" class="form-control"/>
+        </div>
+        <div class="col-md-3">
+            Length of stay
+            <input name="lengthOfStay" type="number" value="1" class="form-control"/>
+        </div>
+        <div class="col-md-2">
+            Departure Date
+            <input name="departureDate" type="date" value="@DateTime.Now.ToString("yyyy-MM-dd")" class="form-control datepicker" />
+        </div>
+        <div class="col-md-2">
+            Minimum fare
+            <input name="minFare" type="number" class="form-control" />
+        </div>
+        <div class="col-md-2">
+            Maximum fare
+            <input name="maxFare" type="number" class="form-control" />
+        </div>
+    </div>
+    <input type="submit" value="Search" class="btn btn-success" />
+</form>

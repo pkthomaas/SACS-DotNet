@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.ActiveTab = "BargainFinderMax";
+}
+
+<h1>Bargain Finder Max</h1>
+
+<form action="bargain_finder_max/search" class="form-horizontal" method="post" role="form">
+    <div class="row form-group">
+        <div class="col-md-6">
+            Origin
+            @Html.Partial("_AirportsDropdown", new AirportDropdownVM("originAirportCode", "JFK"))
+        </div>
+
+        <div class="col-md-6">
+            Destination:
+            @Html.Partial("_AirportsDropdown", new AirportDropdownVM("destinationAirportCode", "LAX"))
+
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3">
+            POS Company Code
+            <input name="requestorCompanyCode" value="TN" class="form-control" />
+        </div>
+        <div class="col-md-3">
+            POS ID
+            <input name="requestorId" value="REQ.ID" class="form-control" />
+        </div>
+        <div class="col-md-3">
+            POS TYPE
+            <input name="requestorType" value="0.AAA.X" class="form-control" />
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3">
+            RPH
+            <input name="rph" value="1" class="form-control" />
+        </div>
+
+        <div class="col-md-3">
+            Passenger Quantity
+            <input name="numberOfPassengers" value="1" type="number" class="form-control" />
+        </div>
+        <div class="col-md-3">
+            Passenger Code
+            <input name="passengerTypeCode" value="ADT" class="form-control" />
+        </div>
+    </div>
+    <div class="row form-group">
+
+        <div class="col-md-3">
+            Departure Date
+            <input id="soapW_departureDate" type="date" name="departureDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" class="form-control datepicker" />
+        </div>
+        <div class="col-md-3">
+            Request type
+            <input name="requestType" value="50TINS" class="form-control" />
+        </div>
+    </div>
+
+    <input type="submit" value="Search" class="btn btn-success" />
+</form>
